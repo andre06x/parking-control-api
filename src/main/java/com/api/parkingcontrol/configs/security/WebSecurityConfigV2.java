@@ -29,20 +29,30 @@ public class WebSecurityConfigV2 {
             // other public endpoints of your API may be appended to this array
     };
 
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http
+//                .httpBasic()
+//                .and()
+//                .authorizeHttpRequests()
+//                .antMatchers(AUTH_WHITELIST).permitAll()
+//                .antMatchers("/**").authenticated()
+//                .and()
+//                .csrf().disable();
+//        return http.build();
+//    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .httpBasic()
+                .cors()
                 .and()
-                .authorizeHttpRequests()
-//                .antMatchers(HttpMethod.GET, "/parking-spot/**").permitAll()
-//                .antMatchers(HttpMethod.POST, "/parking-spot/**").hasRole("USER")
-//                .antMatchers(HttpMethod.DELETE, "/parking-spot/**").hasRole("ADMIN")
-
+                .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .antMatchers("/**").authenticated()
+                .anyRequest().authenticated()
                 .and()
-                .csrf().disable();
+                .httpBasic();
+
         return http.build();
     }
 
