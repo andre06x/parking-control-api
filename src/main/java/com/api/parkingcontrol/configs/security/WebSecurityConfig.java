@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/spring-security-rest/api/swagger-ui/").permitAll()
                 .antMatchers(HttpMethod.POST, "/parking-spot/**").hasRole("USER")
                 .antMatchers(HttpMethod.DELETE, "/parking-spot/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/parking-spot/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
