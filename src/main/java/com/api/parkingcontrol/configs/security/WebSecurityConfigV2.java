@@ -36,7 +36,11 @@ public class WebSecurityConfigV2 {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .antMatchers("/**").authenticated()
+                .antMatchers(HttpMethod.GET,"/parking-spot/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/parking-spot").hasRole("USER")
+                .antMatchers(HttpMethod.PUT,"/parking-spot").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"/parking-spot/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
         return http.build();
