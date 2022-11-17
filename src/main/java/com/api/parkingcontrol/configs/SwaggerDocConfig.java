@@ -16,30 +16,6 @@ import java.util.Arrays;
 @Configuration
 public class SwaggerDocConfig implements WebMvcConfigurer {
 
-//    private List<SecurityScheme> basicScheme() {
-//        List<SecurityScheme> schemeList = new ArrayList();
-//        schemeList.add(new BasicAuth("basicAuth"));
-//        return schemeList;
-//    }
-//
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .securitySchemes(basicScheme())
-//                .apiInfo(new ApiInfoBuilder()
-//                        .title("API parking spot")
-//                .description("More description about the API")
-//                .contact(new Contact("André Silva", "URL", "andre06x@gmail.com"))
-//                .version("1.0.0")
-//                .build())
-//
-//                .select().apis(RequestHandlerSelectors.basePackage("com.api.parkingcontrol.controllers"))
-//
-//                .paths(PathSelectors.any())
-//
-//                .build();
-//    }
-
     @Bean
     public Docket actuatorApi() {
         return new Docket(DocumentationType.SWAGGER_2)

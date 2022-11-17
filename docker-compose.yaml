@@ -19,4 +19,4 @@ services:
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: "parking-control-db"
     ports:
-      - "5432:5432"
+      - "54321:5432"
